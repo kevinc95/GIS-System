@@ -1,0 +1,72 @@
+; Script 9
+;
+; Test of search failures with a large database file.
+;
+; Specify boundaries of coordinate space:
+world	0860000W	0750000W	320000N	430000N
+
+GIS Program
+
+dbFile:     db.txt
+script:     Script09.txt
+log:        McLog09.txt
+Start time: Fri Mar 24 21:36:16 EDT 2017
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+              154800
+   -309600                -270000
+              115200
+--------------------------------------------------------------------------------
+;
+; Import a large DB file:
+Command 1:  import	VA_All.txt
+
+Imported Features by name: 59546
+Longest probe sequence:    76
+Imported Locations:        59546
+--------------------------------------------------------------------------------
+;
+; Check the location and name/state indices if you dare:
+;debug	quad
+;debug	hash
+;
+; Try a few name/state searches for nonexistent features:
+Command 2:  what_is	Bleaksburg	VA
+
+No records match Bleaksburg and VA
+--------------------------------------------------------------------------------
+Command 3:  what_is	Nova	VA
+
+No records match Nova and VA
+--------------------------------------------------------------------------------
+Command 4:  what_is	Wet Run	VA
+
+No records match Wet Run and VA
+--------------------------------------------------------------------------------
+;
+; Try a location search for an empty location:
+Command 5:  what_is_at	383340N	0793423W
+
+   Nothing was found at (79d 34m 23s West, 38d 33m 40s North)
+--------------------------------------------------------------------------------
+;
+; And a few searches for an empty region:
+Command 6:  what_is_in	-long	363206N	0804752W	6	6
+
+   Nothing was found in (80d 47m 52s West +/- 6, 36d 32m 6s North +/- 6)
+--------------------------------------------------------------------------------
+Command 7:  what_is_in	-filter	water	363206N	0804752W	6	6
+
+   Nothing was found in (80d 47m 52s West +/- 6, 36d 32m 6s North +/- 6)
+--------------------------------------------------------------------------------
+;
+; Exit
+Command 8:  quit	
+
+Terminating execution of commands.
+End time: Fri Mar 24 21:37:06 EDT 2017
+--------------------------------------------------------------------------------

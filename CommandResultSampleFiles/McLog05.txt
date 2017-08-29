@@ -1,0 +1,243 @@
+; Script 5
+;
+; Test of "extreme" region searches with a smallish database file.
+;
+; Specify boundaries of coordinate space:
+world	0804500W	0800000W	370000N	374500N
+
+GIS Program
+
+dbFile:     db.txt
+script:     Script05.txt
+log:        McLog05.txt
+Start time: Fri Mar 24 21:26:21 EDT 2017
+Quadtree children are printed in the order SW  SE  NE  NW
+--------------------------------------------------------------------------------
+
+Latitude/longitude values in index entries are shown as signed integers, in total seconds.
+
+World boundaries are set to:
+              135900
+   -290700                -288000
+              133200
+--------------------------------------------------------------------------------
+;
+; Import a smallish DB file:
+Command 1:  import	VA_Montgomery.txt
+
+Imported Features by name: 752
+Longest probe sequence:    39
+Imported Locations:        752
+--------------------------------------------------------------------------------
+;
+; Check the location and name/state indices if you dare:
+;debug	quad
+;debug	hash
+;
+; And a few region searches:
+Command 2:  what_is_in	370359N	0802626W	10	10
+
+   The following 2 features were found in (80d 26m 26s West +/- 10, 37d 3m 59s North +/- 10)
+   12722: Riner  VA  (80d 26m 26s West, 37d 3m 59s North)
+   78819: Riner Historic District  VA  (80d 26m 25s West, 37d 3m 50s North)
+--------------------------------------------------------------------------------
+Command 3:  what_is_in	370359N	0802626W	30	30
+
+   The following 6 features were found in (80d 26m 26s West +/- 30, 37d 3m 59s North +/- 30)
+  101691: Auburn Elementary School  VA  (80d 26m 45s West, 37d 3m 41s North)
+     265: Auburn High School  VA  (80d 26m 34s West, 37d 3m 43s North)
+   78682: Auburn Middle School  VA  (80d 26m 32s West, 37d 3m 47s North)
+   12722: Riner  VA  (80d 26m 26s West, 37d 3m 59s North)
+  104373: Riner Census Designated Place  VA  (80d 26m 22s West, 37d 3m 46s North)
+   78819: Riner Historic District  VA  (80d 26m 25s West, 37d 3m 50s North)
+--------------------------------------------------------------------------------
+Command 4:  what_is_in	370930N	0801859W	10	10
+
+   The following 2 features were found in (80d 18m 59s West +/- 10, 37d 9m 30s North +/- 10)
+   47615: Big Tunnel  VA  (80d 18m 59s West, 37d 9m 30s North)
+   17443: Montgomery  VA  (80d 19m 8s West, 37d 9m 23s North)
+--------------------------------------------------------------------------------
+Command 5:  what_is_in	370930N	0801859W	30	30
+
+   The following 5 features were found in (80d 18m 59s West +/- 30, 37d 9m 30s North +/- 30)
+   47615: Big Tunnel  VA  (80d 18m 59s West, 37d 9m 30s North)
+   55765: Den Hill  VA  (80d 18m 47s West, 37d 9m 20s North)
+    5276: Den Hill Cemetery  VA  (80d 18m 44s West, 37d 9m 20s North)
+   17443: Montgomery  VA  (80d 19m 8s West, 37d 9m 23s North)
+   10676: Mount Calvary Church  VA  (80d 18m 48s West, 37d 9m 19s North)
+--------------------------------------------------------------------------------
+Command 6:  what_is_in	371347N	0802514W	5	5
+
+   The following 14 features were found in (80d 25m 14s West +/- 5, 37d 13m 47s North +/- 5)
+   94855: Arts and Science Administration Building  VA  (80d 25m 13s West, 37d 13m 52s North)
+   49514: Brodie Hall  VA  (80d 25m 12s West, 37d 13m 48s North)
+   58561: Femoyer Hall  VA  (80d 25m 17s West, 37d 13m 52s North)
+   98020: James H Lane Hall  VA  (80d 25m 12s West, 37d 13m 51s North)
+   64863: Lane Hall  VA  (80d 25m 11s West, 37d 13m 51s North)
+   98990: Major Lloyd W Williams Hall  VA  (80d 25m 16s West, 37d 13m 52s North)
+   66868: Major Williams Dormitory  VA  (80d 25m 15s West, 37d 13m 51s North)
+   67006: McBryde Hall  VA  (80d 25m 19s West, 37d 13m 49s North)
+   71827: Newman Library  VA  (80d 25m 10s West, 37d 13m 44s North)
+   78022: Rasche Hall  VA  (80d 25m 9s West, 37d 13m 51s North)
+   92754: Robert Femoyer Hall  VA  (80d 25m 17s West, 37d 13m 52s North)
+   93317: Torgersen Hall  VA  (80d 25m 14s West, 37d 13m 47s North)
+   93626: War Memorial Chapel  VA  (80d 25m 15s West, 37d 13m 43s North)
+   93907: William H "Bosco" Rasche Hall  VA  (80d 25m 9s West, 37d 13m 50s North)
+--------------------------------------------------------------------------------
+Command 7:  what_is_in	371347N	0802514W	10	10
+
+   The following 39 features were found in (80d 25m 14s West +/- 10, 37d 13m 47s North +/- 10)
+   94437: Alumni Hall-Virginia Tech  VA  (80d 25m 5s West, 37d 13m 42s North)
+   94710: Art and Design Learning Center  VA  (80d 25m 15s West, 37d 13m 54s North)
+   94855: Arts and Science Administration Building  VA  (80d 25m 13s West, 37d 13m 52s North)
+   49514: Brodie Hall  VA  (80d 25m 12s West, 37d 13m 48s North)
+   95266: Charles Vawter Senior Hall  VA  (80d 25m 4s West, 37d 13m 37s North)
+   56411: Donaldson Brown Continuing Education Center  VA  (80d 25m 4s West, 37d 13m 42s North)
+   95955: Donaldson Brown Hotel and Conference Center  VA  (80d 25m 4s West, 37d 13m 41s North)
+   57525: Eggleston Hall  VA  (80d 25m 13s West, 37d 13m 38s North)
+   58561: Femoyer Hall  VA  (80d 25m 17s West, 37d 13m 52s North)
+   97229: Herbert J Thomas Hall  VA  (80d 25m 13s West, 37d 13m 56s North)
+   60465: Holden Hall  VA  (80d 25m 24s West, 37d 13m 47s North)
+   97627: J H Shultz Hall  VA  (80d 25m 7s West, 37d 13m 54s North)
+   98020: James H Lane Hall  VA  (80d 25m 12s West, 37d 13m 51s North)
+   98147: Jimmie Monteith Junior Hall  VA  (80d 25m 11s West, 37d 13m 54s North)
+   98289: John Houston Squires Student Center  VA  (80d 25m 6s West, 37d 13m 46s North)
+   64863: Lane Hall  VA  (80d 25m 11s West, 37d 13m 51s North)
+   98716: Lingan Randolph Hall  VA  (80d 25m 24s West, 37d 13m 50s North)
+   98990: Major Lloyd W Williams Hall  VA  (80d 25m 16s West, 37d 13m 52s North)
+   66868: Major Williams Dormitory  VA  (80d 25m 15s West, 37d 13m 51s North)
+   67006: McBryde Hall  VA  (80d 25m 19s West, 37d 13m 49s North)
+   99657: Military Building  VA  (80d 25m 18s West, 37d 13m 54s North)
+   68615: Monteith Hall  VA  (80d 25m 13s West, 37d 13m 55s North)
+   71827: Newman Library  VA  (80d 25m 10s West, 37d 13m 44s North)
+   72224: Norris Hall  VA  (80d 25m 21s West, 37d 13m 48s North)
+  100074: Old Security Building  VA  (80d 25m 18s West, 37d 13m 53s North)
+   74430: Patton Hall  VA  (80d 25m 20s West, 37d 13m 45s North)
+   92498: Price House  VA  (80d 25m 21s West, 37d 13m 52s North)
+   77895: Randolph Hall  VA  (80d 25m 24s West, 37d 13m 51s North)
+   78022: Rasche Hall  VA  (80d 25m 9s West, 37d 13m 51s North)
+   92754: Robert Femoyer Hall  VA  (80d 25m 17s West, 37d 13m 52s North)
+   93055: Roy Holden Hall  VA  (80d 25m 21s West, 37d 13m 40s North)
+   81044: Shanks Hall  VA  (80d 25m 12s West, 37d 13m 54s North)
+   82119: Shultz Hall  VA  (80d 25m 7s West, 37d 13m 54s North)
+   84421: Squires Hall  VA  (80d 25m 6s West, 37d 13m 46s North)
+   86337: Thomas Hall  VA  (80d 25m 15s West, 37d 13m 54s North)
+   93317: Torgersen Hall  VA  (80d 25m 14s West, 37d 13m 47s North)
+   93626: War Memorial Chapel  VA  (80d 25m 15s West, 37d 13m 43s North)
+   93907: William H "Bosco" Rasche Hall  VA  (80d 25m 9s West, 37d 13m 50s North)
+   94051: William Patton Hall  VA  (80d 25m 21s West, 37d 13m 45s North)
+--------------------------------------------------------------------------------
+;
+; And one that extends outside the region (that IS fair):
+Command 8:  what_is_in	370157N	0802908W	240	60
+
+   The following 8 features were found in (80d 29m 8s West +/- 60, 37d 1m 57s North +/- 240)
+    1068: Bethany Church  VA  (80d 28m 43s West, 37d 0m 48s North)
+    3130: Calfee Knob  VA  (80d 29m 8s West, 37d 1m 57s North)
+   51653: Chestnut Ridge School (historical)  VA  (80d 28m 44s West, 37d 0m 47s North)
+   51795: Childress School (historical)  VA  (80d 29m 54s West, 37d 3m 42s North)
+   58165: Fairview  VA  (80d 29m 51s West, 37d 3m 2s North)
+    6462: Fairview Church  VA  (80d 29m 53s West, 37d 3m 0s North)
+   10805: Mount Jackson Church  VA  (80d 28m 51s West, 37d 0m 37s North)
+   13973: Sidney Church  VA  (80d 28m 15s West, 37d 1m 44s North)
+--------------------------------------------------------------------------------
+;
+; And one really small one:
+Command 9:  what_is_in	371347N	0802514W	1	1
+
+   The following 1 features were found in (80d 25m 14s West +/- 1, 37d 13m 47s North +/- 1)
+   93317: Torgersen Hall  VA  (80d 25m 14s West, 37d 13m 47s North)
+--------------------------------------------------------------------------------
+;
+; And two really skinny ones, one East-West and one North-South:
+Command 10:  what_is_in	371347N	0802514W	2	360
+
+   The following 25 features were found in (80d 25m 14s West +/- 360, 37d 13m 47s North +/- 2)
+   47070: Berryfield  VA  (80d 24m 34s West, 37d 13m 46s North)
+   41209: Blacksburg  VA  (80d 24m 50s West, 37d 13m 46s North)
+   48298: Blacksburg Post Office  VA  (80d 24m 52s West, 37d 13m 48s North)
+   49103: Blacksburg United Methodist Church  VA  (80d 24m 45s West, 37d 13m 47s North)
+   49514: Brodie Hall  VA  (80d 25m 12s West, 37d 13m 48s North)
+   95010: Burchard Hall  VA  (80d 25m 29s West, 37d 13m 46s North)
+   95680: Clinton Cowgill Hall  VA  (80d 25m 30s West, 37d 13m 47s North)
+   55241: Cowgil Hall  VA  (80d 25m 29s West, 37d 13m 47s North)
+   21838: Fairview Church  VA  (80d 29m 43s West, 37d 13m 49s North)
+   58290: Fairview School (historical)  VA  (80d 29m 43s West, 37d 13m 49s North)
+   60723: Hancock Hall  VA  (80d 25m 26s West, 37d 13m 49s North)
+   60985: Henderson Student Health Service Building  VA  (80d 25m 1s West, 37d 13m 49s North)
+   60465: Holden Hall  VA  (80d 25m 24s West, 37d 13m 47s North)
+   98289: John Houston Squires Student Center  VA  (80d 25m 6s West, 37d 13m 46s North)
+   64333: Knob Hill  VA  (80d 23m 55s West, 37d 13m 48s North)
+   67006: McBryde Hall  VA  (80d 25m 19s West, 37d 13m 49s North)
+   72224: Norris Hall  VA  (80d 25m 21s West, 37d 13m 48s North)
+   74430: Patton Hall  VA  (80d 25m 20s West, 37d 13m 45s North)
+   29656: Poff Hollow  VA  (80d 30m 3s West, 37d 13m 49s North)
+   30939: Shaffer Hollow  VA  (80d 29m 57s West, 37d 13m 45s North)
+   84421: Squires Hall  VA  (80d 25m 6s West, 37d 13m 46s North)
+   93317: Torgersen Hall  VA  (80d 25m 14s West, 37d 13m 47s North)
+  100672: Town of Blacksburg  VA  (80d 25m 40s West, 37d 13m 48s North)
+   33387: Virginia Polytechnic Institute and State University  VA  (80d 25m 26s West, 37d 13m 45s North)
+   94051: William Patton Hall  VA  (80d 25m 21s West, 37d 13m 45s North)
+--------------------------------------------------------------------------------
+Command 11:  what_is_in	371347N	0802514W	360	2
+
+   The following 22 features were found in (80d 25m 14s West +/- 2, 37d 13m 47s North +/- 360)
+   94309: Al Payne Hall  VA  (80d 25m 13s West, 37d 13m 33s North)
+   45715: Ambler Johnston Hall  VA  (80d 25m 16s West, 37d 13m 23s North)
+   94710: Art and Design Learning Center  VA  (80d 25m 15s West, 37d 13m 54s North)
+   94855: Arts and Science Administration Building  VA  (80d 25m 13s West, 37d 13m 52s North)
+   35213: Blacksburg Ranger Station  VA  (80d 25m 16s West, 37d 16m 34s North)
+   49514: Brodie Hall  VA  (80d 25m 12s West, 37d 13m 48s North)
+   56283: Dietrick Hall  VA  (80d 25m 16s West, 37d 13m 28s North)
+   57525: Eggleston Hall  VA  (80d 25m 13s West, 37d 13m 38s North)
+   97229: Herbert J Thomas Hall  VA  (80d 25m 13s West, 37d 13m 56s North)
+   97490: J Ambler Johnston Hall  VA  (80d 25m 16s West, 37d 13m 23s North)
+   98020: James H Lane Hall  VA  (80d 25m 12s West, 37d 13m 51s North)
+   98990: Major Lloyd W Williams Hall  VA  (80d 25m 16s West, 37d 13m 52s North)
+   66868: Major Williams Dormitory  VA  (80d 25m 15s West, 37d 13m 51s North)
+   67401: Memorial Gymnasium  VA  (80d 25m 15s West, 37d 13m 34s North)
+   68615: Monteith Hall  VA  (80d 25m 13s West, 37d 13m 55s North)
+   92359: Peddrew-Yates Residence Hall  VA  (80d 25m 13s West, 37d 13m 30s North)
+   31101: Shaffer Memorial Cemetery  VA  (80d 25m 15s West, 37d 7m 47s North)
+   81044: Shanks Hall  VA  (80d 25m 12s West, 37d 13m 54s North)
+   86337: Thomas Hall  VA  (80d 25m 15s West, 37d 13m 54s North)
+   93317: Torgersen Hall  VA  (80d 25m 14s West, 37d 13m 47s North)
+   87556: University Terrace  VA  (80d 25m 15s West, 37d 14m 38s North)
+   93626: War Memorial Chapel  VA  (80d 25m 15s West, 37d 13m 43s North)
+--------------------------------------------------------------------------------
+;
+; And just to push the limits:
+Command 12:  what_is_in	371002N	0802042W	10	60000
+
+   The following 23 features were found in (80d 20m 42s West +/- 60000, 37d 10m 2s North +/- 10)
+   19038: Belmont Church  VA  (80d 27m 27s West, 37d 9m 53s North)
+   46652: Belmont Community Cemetery  VA  (80d 27m 29s West, 37d 9m 54s North)
+   46793: Belmont Estates  VA  (80d 26m 29s West, 37d 10m 7s North)
+  103607: Belview Census Designated Place  VA  (80d 30m 35s West, 37d 10m 0s North)
+   50719: Carma Heights  VA  (80d 26m 13s West, 37d 9m 55s North)
+   42825: Centerville  VA  (80d 32m 18s West, 37d 10m 11s North)
+   39663: Dee Cee Hill  VA  (80d 19m 9s West, 37d 10m 3s North)
+    8687: Iron Mine Hollow  VA  (80d 20m 42s West, 37d 10m 2s North)
+    9286: Kirk Hollow  VA  (80d 15m 15s West, 37d 9m 57s North)
+   68743: Montgomery County  VA  (80d 22m 59s West, 37d 10m 0s North)
+   71407: New River Valley Mall Shopping Center  VA  (80d 25m 29s West, 37d 9m 52s North)
+   29095: Pine View Church  VA  (80d 30m 0s West, 37d 10m 12s North)
+   36565: Rolling Hills  VA  (80d 27m 30s West, 37d 9m 55s North)
+   30311: Roselawn Memorial Cemetery  VA  (80d 25m 26s West, 37d 10m 7s North)
+   40704: Shawsville  VA  (80d 15m 19s West, 37d 10m 6s North)
+   81170: Shawsville Historic District  VA  (80d 15m 22s West, 37d 10m 5s North)
+   14094: Skillet Hollow  VA  (80d 17m 3s West, 37d 10m 7s North)
+   14253: Slaughterpen Hollow  VA  (80d 20m 35s West, 37d 10m 10s North)
+   14885: Spring Branch  VA  (80d 14m 15s West, 37d 9m 59s North)
+   85928: The Marketplace Shopping Center  VA  (80d 25m 17s West, 37d 10m 2s North)
+   38855: Vicker Heights  VA  (80d 28m 39s West, 37d 9m 54s North)
+   36239: Virginia Polytechnic Institute and State University Horticultural Research Area  VA  (80d 25m 5s West, 37d 9m 58s North)
+   16656: Wheeling Hollow  VA  (80d 17m 41s West, 37d 9m 57s North)
+--------------------------------------------------------------------------------
+;
+; Exit
+Command 13:  quit	
+
+Terminating execution of commands.
+End time: Fri Mar 24 21:26:22 EDT 2017
+--------------------------------------------------------------------------------
